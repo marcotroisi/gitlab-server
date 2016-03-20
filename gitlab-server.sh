@@ -5,13 +5,13 @@ echo "Initialisation of GitLab for The Farm project"
 echo "---"
 
 echo "...installing Docker Engine"
-sudo yum install docker-engine
+yum install docker-engine
 
 echo "...starting Docker"
-sudo service docker start
+service docker start
 
 echo "...initialising GitLab"
-sudo docker run --detach \
+docker run --detach \
     --hostname gitlab.the-farm.local \
     --env GITLAB_OMNIBUS_CONFIG="gitlab_rails['gitlab_email_from'] = 'gitlab@the-farm.local'; gitlab_rails['gitlab_email_display_name'] = 'GitLab @ The Farm'; " \
     --publish 443:443 --publish 80:80 --publish 22:22 \
