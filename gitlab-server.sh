@@ -5,6 +5,15 @@ echo "Initialisation of GitLab for The Farm project"
 echo "---"
 
 echo "...installing Docker Engine"
+yum update
+sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
 yum install docker-engine
 
 echo "...starting Docker"
