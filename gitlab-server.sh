@@ -23,7 +23,7 @@ echo "...initialising GitLab"
 docker run --detach \
     --hostname gitlab.the-farm.local \
     --env GITLAB_OMNIBUS_CONFIG="gitlab_rails['gitlab_email_from'] = 'gitlab@the-farm.local'; gitlab_rails['gitlab_email_display_name'] = 'GitLab @ The Farm'; " \
-    --publish 443:443 --publish 80:80 --publish 22:22 \
+    --publish 8443:443 --publish 8880:80 --publish 8822:22 \
     --name gitlab_the-farm \
     --restart always \
     --volume /srv/gitlab/config:/etc/gitlab \
